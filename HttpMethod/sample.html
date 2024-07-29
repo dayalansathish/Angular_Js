@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <title>Nested Controllers Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+    <!-- We've added the controller as syntax to each controller declaration in the HTML template -->
+<body ng-controller="mainCtrl as mainCtrl">
+    <div ng-controller="parentCtrl as parentCtrl">
+        <h2>Parent Controller</h2>
+        <p>{{ parentCtrl.parentMessage }}</p>
+        <p>{{ mainCtrl.globalMessage }}</p>
+        
+        <div ng-controller="childCtrl as childCtrl">
+            <h3>Child Controller</h3>
+            <p>{{ childCtrl.childMessage }}</p>
+            <p>{{ mainCtrl.globalMessage }}</p>
+            <p>{{ parentCtrl.parentMessage }}</p>
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+
+        app.controller('mainCtrl', function() {
+            var vm = this;
+            vm.globalMessage = "This message is from the Main Controller";
+        });
+
+        app.controller('parentCtrl', function() {
+            var vm = this;
+            vm.parentMessage = "This message is from the Parent Controller";
+        });
+
+        app.controller('childCtrl', function() {
+            var vm = this;
+            vm.childMessage = "This message is from the Child Controller";
+        });
+    </script>
+</body>
+
+</html>

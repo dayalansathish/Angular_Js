@@ -1,0 +1,40 @@
+input{
+    outline: none;
+    background-color: transparent;
+    color: whitesmoke;
+    border: 1px solid rgba(255, 255, 255, 0.23);
+    padding: 5px;
+}
+
+body{
+    background-image: url(./../Registerform/Background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* height: 100vh; */
+}
+
+.formContainer{
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.15);
+/* border-radius: 16px; */
+/* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+backdrop-filter: blur(4.7px);
+/* -webkit-backdrop-filter: blur(4.7px); */
+border: 1px solid rgba(255, 255, 255, 0.23);
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px; /* Adjust as needed */
+    display: block; /* Ensures each error message occupies a separate line */
+    text-wrap: wrap;
+}
+.w-30{
+    width: 30%;
+}
+
+.table-transparent td {
+    background-color: transparent !important;
+    color: whitesmoke !important;
+}

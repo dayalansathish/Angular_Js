@@ -1,0 +1,170 @@
+AngularJS Tutorial
+
+AngularJS extends HTML with new attributes.
+
+AngularJS is perfect for Single Page Applications (SPAs).
+
+AngularJS is easy to learn.
+
+AngularJS is a JavaScript Framework
+AngularJS is a JavaScript framework written in JavaScript.
+
+AngularJS is distributed as a JavaScript file, and can be added to a web page with a script tag:
+
+---------------------------<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>--------------------------------
+
+AngularJS starts automatically when the web page has loaded.
+
+The ng-app directive tells AngularJS that the <div> element is the "owner" of an AngularJS application.
+
+The ng-model directive binds the value of the input field to the application variable name.
+
+The ng-bind directive binds the content of the <p> element to the application variable name.
+
+AngularJS Module-------------------------------
+var app = angular.module('myApp', []);
+
+AngularJS Controller----------------------------
+app.controller('myCtrl', function($scope) {
+  $scope.firstName= "John";
+  $scope.lastName= "Doe";
+});
+
+AngularJS binds data to HTML using Expressions.-------------
+
+AngularJS Expressions
+AngularJS expressions can be written inside double braces: {{ expression }}.-----------
+
+AngularJS expressions can also be written inside a directive: ng-bind="expression".------------
+
+AngularJS will resolve the expression, and return the result exactly where the expression is written.
+
+AngularJS expressions are much like JavaScript expressions: They can contain literals, operators, and variables.
+
+Example {{ 5 + 5 }} or {{ firstName + " " + lastName }}--------------
+
+
+----------------------------------------------------Angular js-------------------------------------------------------------------
+
+
+AngularJS is a JavaScript framework developed by Google for building dynamic web applications. It extends HTML with additional attributes and binds data to HTML with expressions and directives. Here's a basic overview of AngularJS:
+
+MVC Architecture: AngularJS follows the Model-View-Controller (MVC) architecture pattern. It divides an application into three interconnected components:
+
+Model: Represents the data of the application.
+View: The UI of the application that is rendered to the user.
+Controller: Acts as an intermediary between the Model and the View, handling user interactions and updating the Model as necessary.
+Directives: AngularJS extends HTML by adding directives, which are markers on a DOM element that tell AngularJS's HTML compiler to attach a specified behavior to that DOM element or even transform the DOM element and its children.
+
+Expressions: AngularJS uses expressions to bind data to HTML. Expressions are written inside double curly braces like {{ expression }} and are evaluated and then placed in the HTML.
+
+Modules: AngularJS applications are modular. You define an AngularJS module using the angular.module() function. Modules can depend on other modules.
+
+Controllers: Controllers are JavaScript functions that are bound to a particular scope. They are used to expose data to the view and handle user actions.
+
+Scope: A scope in AngularJS is an object that refers to the application model. It acts as a context for evaluating expressions. Scopes are hierarchical and inherit properties from their parent scopes.
+
+Services: AngularJS provides several built-in services like $http for making AJAX calls, $location for URL manipulation, and $rootScope for the global scope.
+
+Example-----------------
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <div ng-controller="myController">
+        <input type="text" ng-model="name" placeholder="Enter your name">
+        <h1>Hello, {{ name }}</h1>
+    </div>
+
+    <script>
+        // Define the AngularJS application module
+        var app = angular.module('myApp', []);
+
+        // Define a controller for the application
+        app.controller('myController', function($scope) {
+            $scope.name = ''; // Initialize name variable
+        });
+    </script>
+</body>
+</html>
+
+--------------------Directives--------------------
+
+Directives are a core feature of AngularJS that allow you to extend HTML with new attributes and elements, as well as define behaviors and manipulate the DOM (Document Object Model) within your application. They are markers on a DOM element that tell AngularJS's HTML compiler ($compile) to attach specified behavior to that DOM element or transform the DOM element and its children.
+
+Here's a brief explanation of directives in AngularJS:
+
+Built-in Directives: AngularJS comes with a set of built-in directives that you can use out of the box. Some common ones include:
+
+ng-model: Binds an input, select, or textarea element's value to a property on the scope.
+
+ng-bind: Binds the content of an HTML element to a property in the scope.
+
+ng-repeat: Iterates over a collection and repeats a set of HTML elements for each item.
+
+ng-click: Specifies custom behavior to occur when an element is clicked.
+
+ng-show / ng-hide: Shows or hides an element based on an expression.
+
+Creating Custom Directives: AngularJS allows you to create custom directives to encapsulate complex behavior or reusable UI components. Custom directives are defined using the directive() method of an AngularJS module. Directives can be used to:
+
+Manipulate the DOM structure.
+Bind behavior to DOM elements.
+Encapsulate reusable UI components.
+Directive Definition Object (DDO): When creating custom directives, you define a directive definition object (DDO), which specifies the directive's behavior. The DDO typically includes properties such as:
+
+restrict: Specifies how the directive can be used ('E' for element, 'A' for attribute, 'C' for class, 'M' for comment).
+
+template / templateUrl: Defines the HTML template for the directive.
+
+scope: Defines the scope of the directive.
+
+link / controller: Defines the behavior of the directive.
+
+Link Function: The link function of a directive is where you can manipulate the DOM, register event listeners, and set up watchers on the scope. It provides a way to interact with the directive's element and scope before and after it is rendered.
+
+Isolating Scope: Directives can have an isolated scope, which means they have their own scope separate from the parent scope. This helps in creating reusable components with encapsulated behavior and prevents scope pollution.
+
+Overall, directives in AngularJS provide a powerful mechanism for extending HTML and encapsulating behavior, allowing you to create modular and maintainable web applications.
+
+
+ng-model:
+
+<input type="text" ng-model="name">
+<p>Hello, {{ name }}</p>
+
+Explanation: The ng-model directive binds the value of an input field (<input>) to a property named name on the scope. Any changes made to the input field will automatically update the name property, and vice versa. In this example, as the user types into the input field, the value of name is updated, and the greeting message dynamically changes to include the entered name.
+-----------------------
+ng-bind:
+
+<p ng-bind="message"></p>
+
+Explanation: The ng-bind directive binds the content of an HTML element to a property on the scope. In this example, the content of the <p> element is bound to the message property on the scope. Any changes to the message property will automatically update the content of the <p> element.
+-----------------------
+ng-repeat:
+
+<ul>
+    <li ng-repeat="item in items">{{ item }}</li>
+</ul>
+
+Explanation: The ng-repeat directive iterates over a collection (items) and repeats a set of HTML elements for each item in the collection. In this example, each <li> element is repeated for every item in the items array, and the value of item is displayed within each <li> element.
+---------------------------
+ng-click:
+
+<button ng-click="showMessage()">Click me</button>
+
+Explanation: The ng-click directive specifies custom behavior to occur when an element is clicked. In this example, clicking the button triggers the showMessage() function defined in the scope. You can use ng-click to execute JavaScript functions or perform other actions in response to user interaction.
+---------------------------
+ng-show / ng-hide:
+
+<div ng-show="isVisible">Content to show</div>
+<div ng-hide="isHidden">Content to hide</div>
+
+Explanation: The ng-show and ng-hide directives show or hide elements based on the evaluation of an expression. If the expression assigned to ng-show is true, the element is displayed; otherwise, it is hidden. Conversely, if the expression assigned to ng-hide is true, the element is hidden; otherwise, it is displayed. In this example, the visibility of the <div> elements is controlled by the values of the isVisible and isHidden properties on the scope, respectively.
+
+
+
